@@ -4,22 +4,17 @@ import com.group.libraryapp.dto.homework.day4.mapper.FruitStatusTotalAmount;
 import com.group.libraryapp.dto.homework.day4.request.FruitCreateRequest;
 import com.group.libraryapp.dto.homework.day4.request.FruitUpdateRequest;
 import com.group.libraryapp.dto.homework.day4.response.FruitSalesAmountResponse;
-import com.group.libraryapp.repository.fruit.FruitRepository;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import com.group.libraryapp.repository.fruit.FruitJdbcRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @Service
 public class FruitService {
 
-    private final FruitRepository fruitRepository;
+    private final FruitJdbcRepository fruitRepository;
 
-    public FruitService(FruitRepository fruitRepository) {
+    public FruitService(FruitJdbcRepository fruitRepository) {
         this.fruitRepository = fruitRepository;
     }
     public void saveFruit(FruitCreateRequest request){

@@ -58,9 +58,9 @@ public class FruitServiceV2 {
 
     public List<FruitResponse> getListOfConditionedFruit(FruitOptionPriceRequest request) {
         if(request.getOption().equals("GTE")){
-            return fruitRepository.findAllByPriceGreaterThan(request.getPrice());
+            return fruitRepository.findAllByPriceGreaterThanEqual(request.getPrice());
         } else if (request.getOption().equals("LTE")) {
-            return fruitRepository.findAllByPriceLessThan(request.getPrice());
+            return fruitRepository.findAllByPriceLessThanEqual(request.getPrice());
         } else {
             throw new IllegalArgumentException();
         }
